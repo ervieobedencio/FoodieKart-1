@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-primary-50: #fff1f2;
+  --color-primary-100: #ffe4e6;
+  --color-primary-200: #fecdd3;
+  --color-primary-300: #fda4af;
+  --color-primary-400: #fb7185;
+  --color-primary-500: #f43f5e;
+  --color-primary-600: #e11d48;
+  --color-primary-700: #be123c;
+  --color-primary-800: #9f1239;
+  --color-primary-900: #881337;
+
+  --font-sans: "Outfit", "system-ui", "sans-serif";
+
+  --shadow-glass: 0 8px 30px rgba(0, 0, 0, 0.04);
+  --shadow-glass-hover: 0 20px 40px rgba(0, 0, 0, 0.08);
+  --shadow-btn: 0 4px 14px 0 rgba(225, 29, 72, 0.39);
+  --shadow-btn-hover: 0 6px 20px rgba(225, 29, 72, 0.23);
+}
+
+@custom-variant dark (&:is(.dark *));
+
+/* Animated Background Gradient */
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+html,
+body {
+  @apply text-gray-800 antialiased min-h-screen selection:bg-primary-200 selection:text-primary-900;
+  background: linear-gradient(-45deg, #fff1f2, #fdf4ff, #fffbeb, #f0fdf4);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  background-attachment: fixed;
+}
+
+/* Premium Glassmorphism & Cards */
+.glass-panel {
+  @apply bg-white/70 backdrop-blur-xl border border-white/40 shadow-glass ring-1 ring-gray-900/5 transition-all duration-300;
+}
+
+.glass-panel:hover {
+  @apply shadow-glass-hover -translate-y-1 bg-white/80;
+}
+
+/* Beautiful Buttons with Micro-animations */
+.btn-primary {
+  @apply relative overflow-hidden bg-gradient-to-r from-primary-600 to-primary-500 hover:from-primary-500 hover:to-primary-400 text-white font-semibold py-2.5 px-6 rounded-xl transition-all duration-300 active:scale-95 shadow-btn hover:shadow-btn-hover hover:-translate-y-0.5;
+}
+
+.btn-secondary {
+  @apply bg-white/90 hover:bg-white text-gray-700 font-semibold py-2.5 px-6 rounded-xl border border-gray-200 transition-all duration-300 active:scale-95 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:border-gray-300;
+}
+
+/* Refined Inputs */
+.input-field {
+  @apply w-full rounded-xl border-gray-200 shadow-sm focus:border-primary-500 focus:ring-4 focus:ring-primary-500/20 bg-white/60 backdrop-blur-sm transition-all duration-300 hover:bg-white/90 focus:bg-white text-gray-800 outline-none;
+}
